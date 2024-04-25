@@ -14,7 +14,7 @@ def retrieve(query: str, k: int, **kwargs) -> list[str]:
         # it's not an iterable yet; make it one.
         # TODO: we should unify the type signatures of dspy.Retriever
         passages = [passages]
-    passages = [psg.long_text for psg in passages]
+    passages = [psg for psg in passages]
     
     if dsp.settings.reranker:
         passages_cs_scores = dsp.settings.reranker(query, passages)
